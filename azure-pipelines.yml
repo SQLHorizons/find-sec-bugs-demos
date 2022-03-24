@@ -20,3 +20,18 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+
+- task: JFrogMaven@1
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'install'
+    artifactoryResolverService: 'arti-horizons'
+    targetResolveReleaseRepo: 'default-maven-virtual'
+    targetResolveSnapshotRepo: 'default-maven-virtual'
+    artifactoryDeployService: 'arti-horizons'
+    targetDeployReleaseRepo: 'ms-java-release'
+    targetDeploySnapshotRepo: 'ms-java-snapshots'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true

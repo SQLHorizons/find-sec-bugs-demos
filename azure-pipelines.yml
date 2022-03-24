@@ -3,8 +3,7 @@
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
-trigger:
-- master
+trigger: none
 
 pool:
   vmImage: ubuntu-latest
@@ -23,7 +22,7 @@ steps:
 
 - task: JFrogMaven@1
   inputs:
-    mavenPomFile: 'pom.xml'
+    mavenPomFile: 'java-web-jsp/pom.xml'
     goals: 'install'
     artifactoryResolverService: 'arti-horizons'
     targetResolveReleaseRepo: 'default-maven-virtual'

@@ -35,6 +35,13 @@ steps:
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
 
+- task: JFrogPublishBuildInfo@1
+  inputs:
+    artifactoryConnection: 'arti-horizons'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    projectKey: 'a10071967'
+
 - task: JFrogBuildScan@1
   inputs:
     xrayConnection: 'x-ray-horizons'

@@ -34,3 +34,12 @@ steps:
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
+
+- task: JFrogBuildScan@1
+  inputs:
+    xrayConnection: 'x-ray-horizons'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    projectKey: 'a10071967'
+    allowFailBuild: true
+    vuln: true
